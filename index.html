@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Письмо Деду Морозу 🎅</title>
+<title>Что я хочу на новый год или раньше!</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;500&display=swap');
 
@@ -128,8 +128,8 @@
 <body>
 
 <div class="card" id="login">
-  <h1>Ты не Дедушка Мороз!</h1>
-  <p>Если ты настоящий Дедушка Мороз, введи пароль 🎅</p>
+  <h1>Что я хочу</h1>
+  <p>Если ты хочешь знать, введи пароль 🎅</p>
   <input type="password" id="password" placeholder="Пароль">
   <br>
   <button onclick="checkPassword()">Проверить</button>
@@ -137,7 +137,7 @@
 </div>
 
 <div class="card hidden" id="ozon-page">
-  <h1>Добро пожаловать, Дед Мороз! 🎁</h1>
+  <h1>Добро пожаловать, Мама! 🎁</h1>
   <div class="ozon">
     <img class="ozon-logo" src="https://i.ibb.co/Zzw1hzFP/logo-Ozon-new.png" alt="OZON Logo">
     <a href="https://ozon.ru/t/h1Z0Spv" target="_blank">
@@ -154,7 +154,7 @@ function checkPassword() {
     document.getElementById('login').classList.add('hidden');
     document.getElementById('ozon-page').classList.remove('hidden');
   } else {
-    message.textContent = 'Посмотри бумажку ещё раз с двух сторон 😉';
+    message.textContent = 'Посмотри кюар код ещё раз снизу! 😉';
     message.style.color = '#ff4b6e';
   }
 }
