@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Письмо Деду Морозу 🎅</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;500&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+    background: radial-gradient(circle at top, #b3e5ff, #e0f7ff, #fff);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Снежинки */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1.2em;
+    user-select: none;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    max-width: 420px;
+    width: 90%;
+    animation: fadeIn 1s ease;
+  }
+
+  h1 {
+    color: #ff4b6e;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #444;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  input {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    width: 75%;
+  }
+
+  input:focus {
+    border-color: #ff4b6e;
+  }
+
+  button {
+    background: linear-gradient(90deg, #ff4b6e, #ff94c2);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 75, 110, 0.3);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Вторая страница */
+  .ozon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
+  }
+
+  .ozon-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 25px;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="card" id="login">
+  <h1>Ты не Дедушка Мороз!</h1>
+  <p>Если ты настоящий Дедушка Мороз, введи пароль 🎅</p>
+  <input type="password" id="password" placeholder="Пароль">
+  <br>
+  <button onclick="checkPassword()">Проверить</button>
+  <p id="message"></p>
+</div>
+
+<div class="card hidden" id="ozon-page">
+  <h1>Добро пожаловать, Дед Мороз! 🎁</h1>
+  <div class="ozon">
+    <img class="ozon-logo" src="https://i.ibb.co/Zzw1hzFP/logo-Ozon-new.png" alt="OZON Logo">
+    <a href="https://ozon.ru/t/h1Z0Spv" target="_blank">
+      <button>Получить ссылку</button>
+    </a>
+  </div>
+</div>
+
+<script>
+function checkPassword() {
+  const pass = document.getElementById('password').value;
+  const message = document.getElementById('message');
+  if (pass === '1') {
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('ozon-page').classList.remove('hidden');
+  } else {
+    message.textContent = 'Посмотри бумажку ещё раз с двух сторон 😉';
+    message.style.color = '#ff4b6e';
+  }
+}
+
+// генерация снежинок
+for (let i = 0; i < 25; i++) {
+  const snow = document.createElement('div');
+  snow.classList.add('snowflake');
+  snow.textContent = '❄';
+  snow.style.left = Math.random() * 100 + 'vw';
+  snow.style.animationDuration = 3 + Math.random() * 5 + 's';
+  snow.style.fontSize = 10 + Math.random() * 20 + 'px';
+  document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
